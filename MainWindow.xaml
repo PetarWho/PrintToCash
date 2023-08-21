@@ -1,0 +1,16 @@
+﻿<Window x:Class="PrintToCash.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrintToCash"
+        mc:Ignorable="d"
+        Title="Print To Cash - 3D Printing Price Evaluation
+        " Height="450" Width="800">
+    <Grid Background="#FFE0E0E0">
+        <Frame x:Name="MainFrame" HorizontalAlignment="Center" Height="434" VerticalAlignment="Center" Width="800" NavigationUIVisibility="Hidden"/>
+        <Label x:Name="Heading" Content="Print To Cash" HorizontalAlignment="Center" Margin="0,91,0,0" VerticalAlignment="Top" FontFamily="Forte" FontSize="120" Foreground="#FF373D36"/>
+        <ProgressBar x:Name="LoadingProgressBar" Width="652" Height="20" IsIndeterminate="True" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,316,0,0"/>
+        <Label x:Name="by_Roy" Content="by Roy" HorizontalAlignment="Center" Margin="0,234,0,0" VerticalAlignment="Top" FontFamily="Forte" FontSize="28" Foreground="#FF373D36"/>
+    </Grid>
+</Window>

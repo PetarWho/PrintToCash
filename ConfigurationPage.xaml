@@ -1,0 +1,20 @@
+﻿<Page x:Class="PrintToCash.ConfigurationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrintToCash"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ConfigurationPage">
+
+    <Grid Background="#FFDDDDDD">
+        <TextBox x:Name="FinalTouchFeeTextBox" PreviewTextInput="DecimalInputValidation" Text="{Binding FinalTouchHourlyFee}" HorizontalAlignment="Left" Height="31" Margin="490,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" FontFamily="Arial" FontWeight="Bold" FontSize="16"/>
+        <TextBox x:Name="ElectricityTextBox" PreviewTextInput="DecimalInputValidation" Text="{Binding CurrentCostElectricity}" HorizontalAlignment="Left" Height="31" Margin="195,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" FontFamily="Arial" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="ElectricityCostLabel" Content="Electricity Cost" HorizontalAlignment="Left" Margin="195,183,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16"/>
+        <Label x:Name="FinalTouchFeeLabel" Content="Final Touch Fee" HorizontalAlignment="Left" Margin="490,183,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16"/>
+        <Button x:Name="ConfigToMainMenuBtn" Content="Back" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="22" Height="39" Width="84" Click="ConfigToMainMenuBtn_Click"/>
+        <Button x:Name="UpdateConfigBtn" Content="Save Changes" HorizontalAlignment="Center" Height="46" Margin="0,326,0,0" VerticalAlignment="Top" Width="176" FontFamily="Arial Black" FontSize="20" Click="UpdateConfigBtn_Click"/>
+
+    </Grid>
+</Page>
