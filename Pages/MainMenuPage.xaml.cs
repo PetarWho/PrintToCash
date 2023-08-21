@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PrintToCash.AppData;
+using PrintToCash.Pages.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +62,13 @@ namespace PrintToCash
             var materialsPage = new MaterialsPage(this);
 
             Application.Current.MainWindow.Content = materialsPage;
+        }
+
+        private void ProductsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var productsPage = new ProductsPage(this);
+
+            Application.Current.MainWindow.Content = productsPage;
         }
     }
 }

@@ -2,20 +2,9 @@
 using PrintToCash.AppData;
 using PrintToCash.AppData.Entities;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PrintToCash.Pages
 {
@@ -31,6 +20,7 @@ namespace PrintToCash.Pages
             this.materialsPage = materialsPage;
         }
 
+        #region Validation
         private void DecimalInputValidation(object sender, TextCompositionEventArgs e)
         {
             // Allow only digits and a single dot (.) character
@@ -45,6 +35,8 @@ namespace PrintToCash.Pages
             return decimal.TryParse(input, System.Globalization.NumberStyles.AllowDecimalPoint,
                                     System.Globalization.CultureInfo.InvariantCulture, out _);
         }
+
+        #endregion
 
         private async void AddMaterialToDbBtn_Click(object sender, RoutedEventArgs e)
         {
