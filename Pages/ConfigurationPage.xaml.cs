@@ -35,7 +35,7 @@ namespace PrintToCash
             mainPage.NavigateBackToMainMenu();
         }
 
-        private void UpdateConfigBtn_Click(object sender, RoutedEventArgs e)
+        private async void UpdateConfigBtn_Click(object sender, RoutedEventArgs e)
         {
             var elPrice = ElectricityTextBox.Text;
             var finalTouchFee = FinalTouchFeeTextBox.Text;
@@ -50,7 +50,7 @@ namespace PrintToCash
                     {
                         configuration.CurrentCostElectricity = decimal.Parse(elPrice);
                         configuration.FinalTouchHourlyFee = decimal.Parse(finalTouchFee);
-                        dbContext.SaveChanges();
+                        await dbContext.SaveChangesAsync();
                         MessageBox.Show("Successfully updated prices.", "Success",MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     catch (Exception)

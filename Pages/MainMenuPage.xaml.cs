@@ -1,4 +1,5 @@
-﻿using PrintToCash.AppData;
+﻿using Microsoft.EntityFrameworkCore;
+using PrintToCash.AppData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,11 +37,11 @@ namespace PrintToCash
             Application.Current.MainWindow.Content = this;
         }
 
-        private void ConfigBtn_Click(object sender, RoutedEventArgs e)
+        private async void ConfigBtn_Click(object sender, RoutedEventArgs e)
         {
             using (var dbContext = new AppDbContext())
             {
-                var configuration = dbContext.Configuration.FirstOrDefault();
+                var configuration = await dbContext.Configuration.FirstOrDefaultAsync();
 
                 if (configuration != null)
                 {
@@ -50,7 +51,7 @@ namespace PrintToCash
                 }
                 else
                 {
-                    MessageBox.Show("No configuration found in the database.");
+                    MessageBox.Show("No configuration found in database.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
         }

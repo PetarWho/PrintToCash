@@ -1,4 +1,6 @@
-﻿namespace PrintToCash.AppData.Entities
+﻿using System.Windows.Media.Imaging;
+
+namespace PrintToCash.AppData.Entities
 {
     public class Product
     {
@@ -8,5 +10,6 @@
         public decimal Price { get; set; }
         public float Grams { get; set; }
         public int SecondsNeededToPrint { get; set; }
+        public BitmapImage? Image { get; set; }
     }
 }

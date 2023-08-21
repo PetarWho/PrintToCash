@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrintToCash.Pages;
+using System;
 using System.Windows;
 
 namespace PrintToCash

@@ -1,0 +1,21 @@
+﻿<Page x:Class="PrintToCash.Pages.EditMaterialPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrintToCash.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EditMaterialPage">
+
+    <Grid Background="#FFDDDDDD">
+        <Button x:Name="EditToMaterialsBtn" Content="Back" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="22" Height="39" Width="84" Click="AddToMaterialsBtn_Click"/>
+        <Label Content="Edit Material" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="36" FontWeight="Bold"/>
+        <TextBox x:Name="materialNameTextBox" Text="{Binding Name}" HorizontalAlignment="Left" Height="30" Margin="225,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="114" FontFamily="Arial" FontSize="22"/>
+        <Label Content="Material Name" HorizontalAlignment="Left" Margin="225,166,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16"/>
+        <TextBox x:Name="materialPriceTextBox" Text="{Binding Price}" PreviewTextInput="DecimalInputValidation" HorizontalAlignment="Left" Height="30" Margin="460,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="108" FontFamily="Arial" FontSize="22"/>
+        <Label Content="Material Price" HorizontalAlignment="Left" Margin="460,166,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16"/>
+        <Button x:Name="UpdateMaterialToDbBtn" Content="Update" HorizontalAlignment="Center" Height="44" Margin="0,316,0,0" VerticalAlignment="Top" Width="112" FontFamily="Arial" FontSize="22" Click="UpdateMaterialToDbBtn_Click"/>
+
+    </Grid>
+</Page>

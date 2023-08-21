@@ -12,7 +12,7 @@
         <Label Content="Materials" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="36" FontWeight="Bold"/>
         <Button x:Name="MaterialsToMainMenuBtn" Content="Back" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="22" Height="39" Width="84" Click="MaterialsToMainMenuBtn_Click"/>
         <Button x:Name="AddMaterialBtn" Content="Add New" HorizontalAlignment="Left" Height="36" Margin="99,124,0,0" VerticalAlignment="Top" Width="93" FontFamily="Arial" FontSize="16" Click="AddMaterialBtn_Click"/>
-        <ListView x:Name="MaterialsListView" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="302,111,302,30">
+        <ListView x:Name="MaterialsListView" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="302,111,302,30" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionMode="Single">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="100"/>
@@ -20,6 +20,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="EditMaterialBtn" Content="Edit Selected" HorizontalAlignment="Left" Height="36" Margin="86,201,0,0" VerticalAlignment="Top" Width="120" FontFamily="Arial" FontSize="16" Click="EditMaterialBtn_Click"/>
+        <Button x:Name="DeleteMaterialBtn" Content="Delete Selected" HorizontalAlignment="Left" Height="36" Margin="80,278,0,0" VerticalAlignment="Top" Width="132" FontFamily="Arial" FontSize="16" Click="DeleteMaterialBtn_Click"/>
 
     </Grid>
 </Page>
