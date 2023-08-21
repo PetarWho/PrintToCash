@@ -15,6 +15,7 @@
         <Label x:Name="FinalTouchFeeLabel" Content="Final Touch Fee" HorizontalAlignment="Left" Margin="490,183,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16"/>
         <Button x:Name="ConfigToMainMenuBtn" Content="Back" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="22" Height="39" Width="84" Click="ConfigToMainMenuBtn_Click"/>
         <Button x:Name="UpdateConfigBtn" Content="Save Changes" HorizontalAlignment="Center" Height="46" Margin="0,326,0,0" VerticalAlignment="Top" Width="176" FontFamily="Arial Black" FontSize="20" Click="UpdateConfigBtn_Click"/>
+        <Label Content="Configuration" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="36" FontWeight="Bold"/>
 
     </Grid>
 </Page>

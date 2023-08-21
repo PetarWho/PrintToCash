@@ -54,5 +54,12 @@ namespace PrintToCash
                 }
             }
         }
+
+        private void MaterialsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var materialsPage = new MaterialsPage(this);
+
+            Application.Current.MainWindow.Content = materialsPage;
+        }
     }
 }
