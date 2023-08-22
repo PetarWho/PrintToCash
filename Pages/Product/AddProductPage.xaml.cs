@@ -66,9 +66,10 @@ namespace PrintToCash.Pages.Product
                         var config = await dbContext.Configuration.FirstOrDefaultAsync();
                         if (config == null) throw new ArgumentException("No config!");
 
-                        var electricityCost = seconds * (config.CurrentCostElectricity/720);
+                        var electricityCost = (((decimal)seconds) / 3600) * (config.CurrentCostElectricity * config.PrinterElectricityConsumptionKW); ;
                         var finalTouchCost = finalTouchMinutes * (config.FinalTouchHourlyFee / 60);
                         var materialCost = (material.Price/1000) * (decimal)grams;
+                        var total = electricityCost + finalTouchCost + materialCost;
 
                         var product = new AppData.Entities.Product()
                         {
@@ -76,7 +77,7 @@ namespace PrintToCash.Pages.Product
                             Grams = grams,
                             SecondsNeededToPrint = seconds,
                             Description = description,
-                            Price = electricityCost + finalTouchCost + materialCost
+                            Price = total + (total * (config.TaxPercentage * 0.01m))
                         };
 
                         await dbContext.AddAsync<AppData.Entities.Product>(product);
