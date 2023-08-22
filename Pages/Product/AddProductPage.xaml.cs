@@ -7,7 +7,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace PrintToCash.Pages.Product
 {
@@ -34,6 +33,7 @@ namespace PrintToCash.Pages.Product
 
         private void AddToProductsBtn_Click(object sender, RoutedEventArgs e)
         {
+            productsPage.LoadProducts();
             productsPage.NavigateBackToProducts();
         }
 
@@ -52,7 +52,7 @@ namespace PrintToCash.Pages.Product
                 seconds = (int)Math.Ceiling(decimal.Parse(productTimeTextBox.Text.Trim()) * 60);
                 finalTouchMinutes = (int)Math.Ceiling(decimal.Parse(productFinalTouchTimeTextBox.Text.Trim()));
                 description = new TextRange(productDescriptionRichBox.Document.ContentStart, productDescriptionRichBox.Document.ContentEnd).Text.Trim();
-                var material = (Material)materialComboBox.SelectedItem;
+                var material = (Material)materialsComboBox.SelectedItem;
 
                 if (string.IsNullOrEmpty(name) || grams < 0.1f || seconds < 1)
                 {
@@ -66,7 +66,7 @@ namespace PrintToCash.Pages.Product
                         var config = await dbContext.Configuration.FirstOrDefaultAsync();
                         if (config == null) throw new ArgumentException("No config!");
 
-                        var electricityCost = seconds * config.CurrentCostElectricity;
+                        var electricityCost = seconds * (config.CurrentCostElectricity/720);
                         var finalTouchCost = finalTouchMinutes * (config.FinalTouchHourlyFee / 60);
                         var materialCost = (material.Price/1000) * (decimal)grams;
 

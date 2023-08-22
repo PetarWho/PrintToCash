@@ -3,26 +3,49 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:PrintToCash.Pages.Product"
+      xmlns:local="clr-namespace:PrintToCash.Converters"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductsPage">
+    <Page.Resources>
+        <local:SecondsToPrintConverter x:Key="SecondsToPrintConverter" />
+        <local:GramsConverter x:Key="GramsConverter" />
+        <local:PriceConverter x:Key="PriceConverter" />
+    </Page.Resources>
 
     <Grid Background="#FFDDDDDD">
         <Label Content="Products" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="36" FontWeight="Bold"/>
         <Button x:Name="ProductsToMainMenuBtn" Content="Back" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="22" Height="39" Width="84" Click="ProductsToMainMenuBtn_Click"/>
-        <ListView ItemsSource="{Binding Products}" Margin="166,170,166,55">
+        <ListView x:Name="productsListView" ItemsSource="{Binding Products}" Margin="166,170,166,55">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="Auto" />
-                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="Auto" />
-                    <GridViewColumn Header="Grams" DisplayMemberBinding="{Binding Grams}" Width="Auto"/>
-                    <GridViewColumn Header="Seconds to Print" DisplayMemberBinding="{Binding SecondsNeededToPrint}" Width="Auto" />
+                    <GridViewColumn Header="Price">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="10,0,10,0" Text="{Binding Price, Converter={StaticResource PriceConverter}}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Weight">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="10,0,10,0" Text="{Binding Grams, Converter={StaticResource GramsConverter}}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Time to Print">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="10,0,10,0" Text="{Binding SecondsNeededToPrint, Converter={StaticResource SecondsToPrintConverter}}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
         <Button x:Name="AddProductBtn" Content="Add New" HorizontalAlignment="Left" Height="36" Margin="35,185,0,0" VerticalAlignment="Top" Width="93" FontFamily="Arial" FontSize="16" Click="AddProductBtn_Click"/>
-        <Button x:Name="EditProductBtn" Content="Edit Selected" HorizontalAlignment="Left" Height="36" Margin="22,262,0,0" VerticalAlignment="Top" Width="120" FontFamily="Arial" FontSize="16"/>
-        <Button x:Name="DeleteProductBtn" Content="Delete Selected" HorizontalAlignment="Left" Height="36" Margin="16,339,0,0" VerticalAlignment="Top" Width="132" FontFamily="Arial" FontSize="16"/>
+        <Button x:Name="EditProductBtn" Content="Edit Selected" HorizontalAlignment="Left" Height="36" Margin="22,262,0,0" VerticalAlignment="Top" Width="120" FontFamily="Arial" FontSize="16" Click="EditProductBtn_Click"/>
+        <Button x:Name="DeleteProductBtn" Content="Delete Selected" HorizontalAlignment="Left" Height="36" Margin="16,339,0,0" VerticalAlignment="Top" Width="132" FontFamily="Arial" FontSize="16" Click="DeleteProductBtn_Click"/>
     </Grid>
 </Page>

@@ -12,24 +12,23 @@
         <Button x:Name="AddToProductsBtn" Content="Back" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="22" Height="39" Width="84" Click="AddToProductsBtn_Click"/>
         <Button x:Name="AddProductToDbBtn" Content="Save" HorizontalAlignment="Center" Height="44" Margin="0,316,0,0" VerticalAlignment="Top" Width="112" FontFamily="Arial" FontSize="22" Click="AddProductToDbBtn_Click"/>
         <Label Content="Add Product" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="36" FontWeight="Bold"/>
-        <TextBox x:Name="productNameTextBox" HorizontalAlignment="Left" Height="30" Margin="35,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" FontFamily="Arial" FontSize="22"/>
+        <TextBox x:Name="productNameTextBox" HorizontalAlignment="Left" Height="40" Margin="35,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" FontFamily="Arial" FontSize="14"/>
         <Label Content="Product Name" HorizontalAlignment="Left" Margin="35,155,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16"/>
         <TextBox x:Name="productWeightTextBox" PreviewTextInput="DecimalInputValidation" HorizontalAlignment="Left" Height="30" Margin="188,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" FontFamily="Arial" FontSize="22"/>
         <Label Content="Weight (grams)" HorizontalAlignment="Left" Margin="188,155,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16"/>
         <TextBox x:Name="productTimeTextBox" PreviewTextInput="DecimalInputValidation" HorizontalAlignment="Left" Height="30" Margin="341,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" FontFamily="Arial" FontSize="22"/>
         <TextBlock Text="Process Time (minutes)" TextWrapping="Wrap" FontFamily="Arial" FontSize="16" Margin="0,146,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Height="40" Width="106"/>
-        <ComboBox x:Name="materialComboBox" ItemsSource="{Binding Materials}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMaterial}" Margin="644,199,42,221" />
         <Label Content="Material" HorizontalAlignment="Left" Margin="664,155,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" Width="74"/>
         <RichTextBox x:Name="productDescriptionRichBox" HorizontalAlignment="Left" Height="88" Margin="88,316,0,0" VerticalAlignment="Top" Width="173">
             <FlowDocument>
                 <Paragraph>
-                    <Run Text="RichTextBox"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
         <Label Content="Description (optional)" HorizontalAlignment="Left" Margin="92,270,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" Width="165" FontStyle="Italic"/>
         <TextBox x:Name="productFinalTouchTimeTextBox" PreviewTextInput="DecimalInputValidation" HorizontalAlignment="Left" Height="30" Margin="491,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" FontFamily="Arial" FontSize="22"/>
         <TextBlock Text="Final Touch Time (minutes)" TextWrapping="Wrap" FontFamily="Arial" FontSize="16" Margin="491,146,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center" Height="40" Width="114"/>
+        <ComboBox x:Name="materialsComboBox" ItemsSource="{Binding Materials}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMaterial}"  HorizontalAlignment="Left" Margin="641,199,0,0" VerticalAlignment="Top" Width="120" Height="30" FontFamily="Arial" FontSize="16"/>
 
     </Grid>
 </Page>
