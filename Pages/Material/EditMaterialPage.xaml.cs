@@ -94,7 +94,6 @@ namespace PrintToCash.Pages
                 {
                     MessageBox.Show("Oops.. Something strange happened!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
             }
         }
     }

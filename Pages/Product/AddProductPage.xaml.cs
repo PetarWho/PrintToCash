@@ -54,7 +54,7 @@ namespace PrintToCash.Pages.Product
                 description = new TextRange(productDescriptionRichBox.Document.ContentStart, productDescriptionRichBox.Document.ContentEnd).Text.Trim();
                 var material = (Material)materialsComboBox.SelectedItem;
 
-                if (string.IsNullOrEmpty(name) || grams < 0.1f || seconds < 1)
+                if (string.IsNullOrEmpty(name) || grams < 0.1f || seconds < 1 || finalTouchMinutes < 0)
                 {
                     throw new ArgumentException("Name, grams or time empty!");
                 }

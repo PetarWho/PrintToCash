@@ -27,9 +27,11 @@ namespace PrintToCash.AppData
             modelBuilder.Entity<Material>().Property(o => o.Price).HasColumnType("decimal(8, 2)");
             modelBuilder.Entity<Config>().Property(o => o.CurrentCostElectricity).HasColumnType("decimal(7, 5)");
             modelBuilder.Entity<Config>().Property(o => o.FinalTouchHourlyFee).HasColumnType("decimal(4, 2)");
+            modelBuilder.Entity<Config>().Property(o => o.PrinterElectricityConsumptionKW).HasColumnType("decimal(8, 2)");
+
 
             modelBuilder.Entity<Config>().HasData(
-            new Config { Id = 1, CurrentCostElectricity = 0.3M, FinalTouchHourlyFee = 0.5M }
+            new Config { Id = 1, CurrentCostElectricity = 0.3M, FinalTouchHourlyFee = 0.5M, PrinterElectricityConsumptionKW = 0.36m, TaxPercentage = 5}
             );
 
             base.OnModelCreating(modelBuilder);

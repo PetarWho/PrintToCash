@@ -1,4 +1,5 @@
-﻿using PrintToCash.AppData;
+﻿using Microsoft.EntityFrameworkCore;
+using PrintToCash.AppData;
 using PrintToCash.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -56,9 +57,42 @@ namespace PrintToCash.Pages.Product
             Application.Current.MainWindow.Content = this;
         }
 
-        private void EditProductBtn_Click(object sender, RoutedEventArgs e)
+        private async void EditProductBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (productsListView.SelectedItem is AppData.Entities.Product selectedProduct)
+            {
+                string name = selectedProduct.Name;
 
+                using (var dbContext = new AppDbContext())
+                {
+                    var prod = await dbContext.Products.FindAsync(selectedProduct.Id);
+
+                    if (prod != null)
+                    {
+                        var model = new EditProductPageViewModel();
+                        model.Product = new ProductViewModel()
+                        {
+                            Id = prod.Id,
+                            Name = prod.Name,
+                            Grams = prod.Grams,
+                            Description = prod.Description,
+                            MinutesToPrint = prod.SecondsNeededToPrint/60,
+                            Price = prod.Price,
+                        };
+                        var editProductPage = new EditProductPage(model, this);
+
+                        Application.Current.MainWindow.Content = editProductPage;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No products in database.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a material.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private async void DeleteProductBtn_Click(object sender, RoutedEventArgs e)
