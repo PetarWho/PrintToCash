@@ -7,8 +7,9 @@ namespace PrintToCash.AppData.Entities
     {
         public Guid Id { get; set; }
         public string? Note { get; set; }
-        public DateTime Date { get; set;} = DateTime.Now;
+        public DateTime Date { get; set; } = DateTime.Now;
         public decimal PricePaid { get; set; }
-        public ICollection<Product> Products { get; set; } = new List<Product>();
+        public int ProductsCount { get; set; }
+        public ICollection<ProductOrder> ProductsOrders { get; set; } = new List<ProductOrder>();
     }
 }

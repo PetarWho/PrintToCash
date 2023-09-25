@@ -1,22 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PrintToCash.AppData;
+﻿using PrintToCash.AppData;
 using PrintToCash.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PrintToCash.Pages.Product
 {
@@ -115,7 +102,7 @@ namespace PrintToCash.Pages.Product
             }
             else
             {
-                MessageBox.Show("Select a material.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Select a product.", "Selection error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }

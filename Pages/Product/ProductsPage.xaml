@@ -16,7 +16,7 @@
     <Grid Background="#FFDDDDDD">
         <Label Content="Products" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="36" FontWeight="Bold"/>
         <Button x:Name="ProductsToMainMenuBtn" Content="Back" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="22" Height="39" Width="84" Click="ProductsToMainMenuBtn_Click"/>
-        <ListView x:Name="productsListView" ItemsSource="{Binding Products}" Margin="166,170,166,55">
+        <ListView x:Name="productsListView" ItemsSource="{Binding Products}" Margin="166,170,166,55" SelectionMode="Multiple">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="Auto" />

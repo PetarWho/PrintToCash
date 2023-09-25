@@ -110,6 +110,8 @@ namespace PrintToCash.Pages.Product
                     prod.Grams = newWeight;
                     prod.SecondsNeededToPrint = newTimeSeconds;
                     prod.Price = total + (total * (config.TaxPercentage * 0.01m));
+                    prod.FinalTouchMinutes = newFinalTouchMinutes;
+                    prod.MaterialId = material.Id;
 
                     await dbContext.SaveChangesAsync();
 

@@ -10,6 +10,7 @@ namespace PrintToCash.AppData
         public DbSet<Material> Materials { get; set; } = null!;
         public DbSet<Order> Orders { get; set; } = null!;
         public DbSet<Config> Configuration { get; set; } = null!;
+        public DbSet<ProductOrder> ProductsOrders { get; set; } = null!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -33,6 +34,19 @@ namespace PrintToCash.AppData
             modelBuilder.Entity<Config>().HasData(
             new Config { Id = 1, CurrentCostElectricity = 0.3M, FinalTouchHourlyFee = 0.5M, PrinterElectricityConsumptionKW = 0.36m, TaxPercentage = 5}
             );
+
+            modelBuilder.Entity<ProductOrder>()
+        .HasKey(op => new { op.OrderId, op.ProductId });
+
+            modelBuilder.Entity<ProductOrder>()
+                .HasOne(op => op.Order)
+                .WithMany(o => o.ProductsOrders)
+                .HasForeignKey(op => op.OrderId);
+
+            modelBuilder.Entity<ProductOrder>()
+                .HasOne(op => op.Product)
+                .WithMany(p => p.ProductsOrders)
+                .HasForeignKey(op => op.ProductId);
 
             base.OnModelCreating(modelBuilder);
         }

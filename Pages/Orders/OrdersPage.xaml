@@ -1,0 +1,52 @@
+﻿<Page x:Class="PrintToCash.Pages.Orders.OrdersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrintToCash.Converters"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrdersPage">
+
+    <Page.Resources>
+        <local:PriceConverter x:Key="PriceConverter" />
+        <local:DateConverter x:Key="DateConverter" />
+        <local:ListCountConverter x:Key="ListCountConverter" />
+    </Page.Resources>
+
+    <Grid Background="#FFDDDDDD">
+        <Label Content="Orders" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="36" FontWeight="Bold"/>
+        <Button x:Name="OrdersToMainMenuBtn" Content="Back" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="22" Height="39" Width="84" Click="OrdersToMainMenuBtn_Click"/>
+        <ListView x:Name="ordersListView" ItemsSource="{Binding Orders}" Margin="166,170,166,55">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Note" DisplayMemberBinding="{Binding Note}" Width="Auto" />
+                    <GridViewColumn Header="Earning">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="10,0,10,0" Text="{Binding PricePaid, Converter={StaticResource PriceConverter}}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Date">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="10,0,10,0" Text="{Binding Date, Converter={StaticResource DateConverter}}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Products">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="10,0,10,0" Text="{Binding ProductsCount}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="AddOrderBtn" Content="Add New" HorizontalAlignment="Left" Height="36" Margin="35,185,0,0" VerticalAlignment="Top" Width="93" FontFamily="Arial" FontSize="16" Click="AddOrderBtn_Click"/>
+        <Button x:Name="EditOrderBtn" Content="Edit Selected" HorizontalAlignment="Left" Height="36" Margin="22,262,0,0" VerticalAlignment="Top" Width="120" FontFamily="Arial" FontSize="16" Click="EditOrderBtn_Click"/>
+        <Button x:Name="DeleteOrderBtn" Content="Delete Selected" HorizontalAlignment="Left" Height="36" Margin="16,339,0,0" VerticalAlignment="Top" Width="132" FontFamily="Arial" FontSize="16" Click="DeleteOrderBtn_Click"/>
+    </Grid>
+</Page>

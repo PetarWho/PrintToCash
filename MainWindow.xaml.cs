@@ -24,6 +24,8 @@ namespace PrintToCash
         public MainWindow()
         {
             InitializeComponent();
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
     }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PrintToCash"
         mc:Ignorable="d"
         Title="Print To Cash - 3D Printing Price Evaluation
-        " Height="450" Width="800">
+        " Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid Background="#FFE0E0E0">
         <Frame x:Name="MainFrame" HorizontalAlignment="Center" Height="434" VerticalAlignment="Center" Width="800" NavigationUIVisibility="Hidden"/>
         <Label x:Name="Heading" Content="Print To Cash" HorizontalAlignment="Center" Margin="0,91,0,0" VerticalAlignment="Top" FontFamily="Forte" FontSize="120" Foreground="#FF373D36"/>

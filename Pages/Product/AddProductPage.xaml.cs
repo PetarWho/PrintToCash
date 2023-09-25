@@ -77,7 +77,9 @@ namespace PrintToCash.Pages.Product
                             Grams = grams,
                             SecondsNeededToPrint = seconds,
                             Description = description,
-                            Price = total + (total * (config.TaxPercentage * 0.01m))
+                            Price = total + (total * (config.TaxPercentage * 0.01m)),
+                            FinalTouchMinutes = finalTouchMinutes,
+                            MaterialId = material.Id
                         };
 
                         await dbContext.AddAsync<AppData.Entities.Product>(product);

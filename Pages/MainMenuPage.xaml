@@ -9,7 +9,7 @@
       Title="MainMenuPage">
 
     <Grid Background="#FFDDDDDD">
-        <Button x:Name="OrdersBtn" Content="Orders" HorizontalAlignment="Left" Margin="262,104,0,0" VerticalAlignment="Top" Height="45" Width="193" Background="#FFB2B2B2" FontFamily="Arial" FontSize="16" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="OrdersBtn" Content="Orders" HorizontalAlignment="Left" Margin="262,104,0,0" VerticalAlignment="Top" Height="45" Width="193" Background="#FFB2B2B2" FontFamily="Arial" FontSize="16" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5" Click="OrdersBtn_Click">
         </Button>
         <Button x:Name="ProductsBtn" Content="Products" HorizontalAlignment="Left" Margin="262,178,0,0" VerticalAlignment="Top" Height="45" Width="193" Background="#FFB2B2B2" FontFamily="Arial" FontSize="16" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5" Click="ProductsBtn_Click"/>
         <Button x:Name="MaterialsBtn" Content="Materials" HorizontalAlignment="Left" Margin="262,253,0,0" VerticalAlignment="Top" Height="45" Width="193" Background="#FFB2B2B2" FontFamily="Arial" FontSize="16" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5" Click="MaterialsBtn_Click"/>

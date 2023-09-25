@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PrintToCash.AppData;
 
@@ -11,9 +12,10 @@ using PrintToCash.AppData;
 namespace PrintToCash.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230925000032_ChangedProductsOrdersName")]
+    partial class ChangedProductsOrdersName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,13 +141,19 @@ namespace PrintToCash.Migrations
 
             modelBuilder.Entity("PrintToCash.AppData.Entities.ProductOrder", b =>
                 {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.HasKey("OrderId", "ProductId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
 
                     b.HasIndex("ProductId");
 
@@ -166,13 +174,13 @@ namespace PrintToCash.Migrations
             modelBuilder.Entity("PrintToCash.AppData.Entities.ProductOrder", b =>
                 {
                     b.HasOne("PrintToCash.AppData.Entities.Order", "Order")
-                        .WithMany("ProductsOrders")
+                        .WithMany("ProductOrders")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("PrintToCash.AppData.Entities.Product", "Product")
-                        .WithMany("ProductsOrders")
+                        .WithMany("ProductOrders")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -184,12 +192,12 @@ namespace PrintToCash.Migrations
 
             modelBuilder.Entity("PrintToCash.AppData.Entities.Order", b =>
                 {
-                    b.Navigation("ProductsOrders");
+                    b.Navigation("ProductOrders");
                 });
 
             modelBuilder.Entity("PrintToCash.AppData.Entities.Product", b =>
                 {
-                    b.Navigation("ProductsOrders");
+                    b.Navigation("ProductOrders");
                 });
 #pragma warning restore 612, 618
         }

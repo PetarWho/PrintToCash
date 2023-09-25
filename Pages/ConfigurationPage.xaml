@@ -9,13 +9,17 @@
       Title="ConfigurationPage">
 
     <Grid Background="#FFDDDDDD">
-        <TextBox x:Name="FinalTouchFeeTextBox" PreviewTextInput="DecimalInputValidation" Text="{Binding FinalTouchHourlyFee}" HorizontalAlignment="Left" Height="31" Margin="490,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" FontFamily="Arial" FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="ElectricityTextBox" PreviewTextInput="DecimalInputValidation" Text="{Binding CurrentCostElectricity}" HorizontalAlignment="Left" Height="31" Margin="195,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" FontFamily="Arial" FontWeight="Bold" FontSize="16"/>
-        <Label x:Name="ElectricityCostLabel" Content="Electricity Cost" HorizontalAlignment="Left" Margin="195,183,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16"/>
-        <Label x:Name="FinalTouchFeeLabel" Content="Final Touch Fee" HorizontalAlignment="Left" Margin="490,183,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16"/>
+        <TextBox x:Name="FinalTouchFeeTextBox" PreviewTextInput="DecimalInputValidation" Text="{Binding FinalTouchHourlyFee}" HorizontalAlignment="Left" Height="31" Margin="276,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="124" FontFamily="Arial" FontWeight="Bold" FontSize="18"/>
+        <TextBox x:Name="ElectricityTextBox" PreviewTextInput="DecimalInputValidation" Text="{Binding CurrentCostElectricity}" HorizontalAlignment="Left" Height="31" Margin="133,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="116" FontFamily="Arial" FontWeight="Bold" FontSize="18"/>
+        <TextBox x:Name="ElectricityConsumptionKWhTextBox" PreviewTextInput="DecimalInputValidation" Text="{Binding PrinterElectricityConsumptionKW}" HorizontalAlignment="Left" Height="30" Margin="427,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="116" FontFamily="Arial" FontWeight="Bold" FontSize="18"/>
+        <Label x:Name="ElectricityCostLabel" Content="Electricity Cost" HorizontalAlignment="Left" Margin="133,161,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16"/>
+        <Label x:Name="FinalTouchFeeLabel" Content="Final Touch Fee" HorizontalAlignment="Left" Margin="276,161,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16"/>
         <Button x:Name="ConfigToMainMenuBtn" Content="Back" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="22" Height="39" Width="84" Click="ConfigToMainMenuBtn_Click"/>
         <Button x:Name="UpdateConfigBtn" Content="Save Changes" HorizontalAlignment="Center" Height="46" Margin="0,326,0,0" VerticalAlignment="Top" Width="176" FontFamily="Arial Black" FontSize="20" Click="UpdateConfigBtn_Click"/>
         <Label Content="Configuration" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="36" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Height="55" Margin="427,129,0,0" TextWrapping="Wrap" Text="Printer el. consumption (kWh)" VerticalAlignment="Top" TextAlignment="Center" Width="116" FontFamily="Arial" FontSize="16"/>
+        <TextBox x:Name="TaxPercentageTextBox" PreviewTextInput="DecimalInputValidation" Text="{Binding TaxPercentage}" HorizontalAlignment="Left" Height="30" Margin="573,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="116" FontFamily="Arial" FontWeight="Bold" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="573,161,0,0" TextWrapping="Wrap" Text="Tax (%)" VerticalAlignment="Top" TextAlignment="Center" Width="116" FontFamily="Arial" FontSize="16"/>
 
     </Grid>
 </Page>

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PrintToCash.AppData;
 
@@ -11,9 +12,10 @@ using PrintToCash.AppData;
 namespace PrintToCash.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230822230656_addednewPropsToProduct")]
+    partial class addednewPropsToProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,9 +94,6 @@ namespace PrintToCash.Migrations
                     b.Property<decimal>("PricePaid")
                         .HasColumnType("decimal(8,2)");
 
-                    b.Property<int>("ProductsCount")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Orders");
@@ -124,6 +123,9 @@ namespace PrintToCash.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("OrderId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(8,2)");
 
@@ -134,22 +136,9 @@ namespace PrintToCash.Migrations
 
                     b.HasIndex("MaterialId");
 
+                    b.HasIndex("OrderId");
+
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("PrintToCash.AppData.Entities.ProductOrder", b =>
-                {
-                    b.Property<Guid>("OrderId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrderId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductsOrders");
                 });
 
             modelBuilder.Entity("PrintToCash.AppData.Entities.Product", b =>
@@ -160,36 +149,16 @@ namespace PrintToCash.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("PrintToCash.AppData.Entities.Order", null)
+                        .WithMany("Products")
+                        .HasForeignKey("OrderId");
+
                     b.Navigation("Material");
-                });
-
-            modelBuilder.Entity("PrintToCash.AppData.Entities.ProductOrder", b =>
-                {
-                    b.HasOne("PrintToCash.AppData.Entities.Order", "Order")
-                        .WithMany("ProductsOrders")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PrintToCash.AppData.Entities.Product", "Product")
-                        .WithMany("ProductsOrders")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("PrintToCash.AppData.Entities.Order", b =>
                 {
-                    b.Navigation("ProductsOrders");
-                });
-
-            modelBuilder.Entity("PrintToCash.AppData.Entities.Product", b =>
-                {
-                    b.Navigation("ProductsOrders");
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
